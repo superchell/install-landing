@@ -9,6 +9,13 @@ GIT
       rails (>= 4.2)
 
 GIT
+  remote: https://github.com/brian-kephart/camaleon_sitemap_customizer.git
+  revision: 14ed92aa9e681ae74b80938ca0474781132021e8
+  specs:
+    camaleon_sitemap_customizer (0.4.0)
+      camaleon_cms
+
+GIT
   remote: https://github.com/owen2345/camaleon-cms.git
   revision: d67f54f9e39b283f4a7894dbd332d2a2d9db64f1
   specs:
@@ -36,6 +43,20 @@ GIT
   specs:
     camaleon_post_order (0.0.2)
       rails
+
+GIT
+  remote: https://github.com/superchell/camaleon-cms-language-editor.git
+  revision: b8d24166ea64303d793c060558b3d96c92010d80
+  specs:
+    cama_language_editor (1.1)
+      rails (~> 5.1.4)
+
+GIT
+  remote: https://github.com/superchell/camaleon_robots_editor.git
+  revision: c2f2e0f257efd51e6c9b47c4ed555c2063ee5b26
+  specs:
+    camaleon_robots_editor (0.1.0)
+      rails (~> 5.1.4)
 
 GIT
   remote: https://github.com/superchell/heroku-deflater.git
@@ -144,6 +165,8 @@ GEM
       activesupport (>= 4.2.0)
     i18n (0.9.5)
       concurrent-ruby (~> 1.0)
+    i18n-js (3.0.5)
+      i18n (>= 0.6.6, < 2)
     image_optim (0.26.1)
       exifr (~> 1.2, >= 1.2.2)
       fspath (~> 3.0)
@@ -288,13 +311,17 @@ PLATFORMS
 
 DEPENDENCIES
   byebug
+  cama_language_editor!
   camaleon_cms!
   camaleon_image_optimizer!
   camaleon_post_order!
+  camaleon_robots_editor!
+  camaleon_sitemap_customizer!
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   draper (~> 3)
   heroku-deflater!
+  i18n-js
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   pg (~> 0.18)
