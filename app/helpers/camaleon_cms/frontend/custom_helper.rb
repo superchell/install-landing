@@ -39,23 +39,21 @@ module CamaleonCms::Frontend::CustomHelper
     true
   end
 
-  #Lazy images
   def build_lazy_image(image, attr = {})
-  html = ''
-  image_min = image.cama_parse_image_version('x20', true)
-  alt = attr[:alt] || ''
-  html_class = attr[:class] || ''
-  img_class = attr[:img_class] || ''
+    html = ''
+    image_min = 'data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=='
+    alt = attr[:alt] || ''
+    img_class = attr[:img_class] || ''
+    width = attr[:width].present? ? "width=\"#{attr[:width]}\"" : ''
+    height = attr[:height].present? ? "height=\"#{attr[:height]}\"" : ''
 
-  if image != image_min
-    html << "<a href=\"#{image}\"class=\"primary progressive replace #{html_class}\">
-      <img src=\"#{image_min}\" class=\"preview #{img_class}\" alt=\"#{alt}\"/>
-      </a>"
-  else
-    html << "<img src=\"#{image_min}\" class=\"#{img_class}\" alt=\"#{alt}\"/>"
-  end
+    versions = ''
+    if attr[:versions]
+      versions = "data-srcset=\"#{image.cama_parse_image_version('800x', true)} 769w, #{image.cama_parse_image_version('500x', true)} 320w\""
+    end
 
-  raw html
+    html << %(<img src="#{image_min}" #{width} #{height} data-src="#{image}" #{versions} class="lozad #{img_class}" alt="#{alt}"/>)
+    raw html
   end
 
 end
